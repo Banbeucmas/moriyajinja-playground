@@ -14,6 +14,6 @@ pnpm dev
 ```
 
 ## FAQ:
-**Q:** Why Moriya Shrine?
+**Q:** Why Moriya Shrine?  
 **A:** I setup all of my project with Touhou references, Moriya Shrine has some funky stuff.
 
