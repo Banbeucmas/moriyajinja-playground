@@ -1,6 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/*
+    The default border color has changed to `currentcolor` in Tailwind CSS v4,
+    so we've added these compatibility styles to make sure everything still
+    looks the same as it did with Tailwind CSS v3.
+
+    If we ever want to remove these styles, we need to add an explicit border
+    color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
+}
 
 body {
     display: grid;
@@ -11,18 +27,13 @@ body {
 body::before {
     --size: 45px;
     --line: color-mix(in lch, canvasText, transparent 70%);
-    content: '';
+    content: "";
     height: 100vh;
     width: 100vw;
     position: fixed;
-    background: linear-gradient(
-            90deg,
-            var(--line) 1px,
-            transparent 1px var(--size)
-    )
-    50% 50% / var(--size) var(--size),
-    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
-        var(--size) var(--size);
+    background: linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+        var(--size) var(--size), linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50%
+        50% / var(--size) var(--size);
     mask: linear-gradient(-20deg, transparent 50%, white);
     top: 0;
     transform-style: flat;
